@@ -10,6 +10,7 @@ import {
 import useLogDetails from "@/hooks/useLogDetails";
 import { usePersonData } from "@/hooks/usePersonData";
 
+// Person types
 interface Person {
   backgroundImageUrl: string;
   followers: number;
@@ -19,6 +20,7 @@ interface Person {
   title: string;
 }
 
+// Person data initialization
 type PersonContextType = {
   data: Person | undefined;
   handleButtonClick: (person: string) => void;
@@ -46,6 +48,7 @@ const personContextDefaultValues: PersonContextType = {
   setEnableLogs: () => {},
 };
 
+// creating context
 const PersonContext = createContext<PersonContextType>(
   personContextDefaultValues,
 );
@@ -70,6 +73,7 @@ export function PersonProvider({ children }: Props) {
 
   const { data, error, isLoading } = usePersonData(selectedPerson);
 
+  //   Changing the Developer profile
   const handleButtonClick = useCallback((person: string) => {
     setSelectedPerson(person);
   }, []);

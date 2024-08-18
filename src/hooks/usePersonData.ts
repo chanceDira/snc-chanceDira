@@ -9,7 +9,7 @@ interface Person {
   followers: number;
   following: number;
 }
-
+// Fetching person data
 const fetchPerson = async (person: string): Promise<Person> => {
   const { data } = await axios.get(`/api/person?person=${person}`);
   return data;

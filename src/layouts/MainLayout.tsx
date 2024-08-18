@@ -25,6 +25,7 @@ export const MainLayout: FunctionComponent<
     setEnableLogs,
   } = usePersonContext();
 
+  // useRef declaration
   const dataRef = useRef(data);
   const errorRef = useRef(error);
   const isLoadingRef = useRef(isLoading);
@@ -35,6 +36,7 @@ export const MainLayout: FunctionComponent<
   isLoadingRef.current = isLoading;
   selectedPersonRef.current = selectedPerson;
 
+  // animation motion directions
   const cardVariants = useMemo(
     () => ({
       hidden: { opacity: 0, y: 20 },
