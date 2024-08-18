@@ -21,4 +21,20 @@ model User {
   title              String @db.VarChar(100)
   followers          Int
   following          Int
+  companies          UserCompanies[]
+}
+
+model Company {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(100)
+  users UserCompanies[]
+}
+
+model UserCompanies {
+  userId    Int
+  companyId Int
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@id([userId, companyId])
 }

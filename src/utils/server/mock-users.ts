@@ -21,5 +21,5 @@ export const mockUsers: { [key in Person]: User | null } = {
     followers: 20000,
     following: 1000,
   },
-  [Person.PersonC]: null, // Always fails
+  [Person.PersonC]: null,
 };
